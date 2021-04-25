@@ -16,10 +16,8 @@ export class ProductService {
   }
 
   public getProducts():Observable<Product[]>{
-    let host=Math.random()>0.2?environment.host:environment.unreachableHost;
-    //let host=environment.host;
+    let host = Math.random()>0.2?environment.host:environment.unreachableHost;
     return this.http.get<Product[]>(host+"/products");
-    //return throwError("Not Implemented yet");
   }
   public getSelectedProducts():Observable<Product[]>{
     return this.http.get<Product[]>(environment.host+"/products?selected=true");
